@@ -38,9 +38,9 @@ pipeline {
         }
         stage('Docker Compose') {
             steps {
-                bat 'docker compose up --build -d'
+                bat '"C:\\Users\\lipsa\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose up --build -d'
             }
-        }
+        }    
     }
 
     post {
