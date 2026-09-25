@@ -38,8 +38,8 @@ pipeline {
         }
         stage('Docker Compose') {
             steps {
-                bat '"C:\\Users\\lipsa\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" --version'
-                bat '"C:\\Users\\lipsa\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose version'            }
+                bat '"C:\\Users\\lipsa\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker-compose.exe" up --build -d'
+            }
         }    
     }
 
