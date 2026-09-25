@@ -36,11 +36,13 @@ pipeline {
                 bat '"C:\\Users\\lipsa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pytest order-service'
             }
         }
+    }
 
     post {
         success {
             echo 'All tests passed successfully!'
         }
+
         failure {
             echo 'Tests failed. Check the console output.'
         }
