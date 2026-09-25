@@ -36,6 +36,11 @@ pipeline {
                 bat '"C:\\Users\\lipsa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pytest order-service'
             }
         }
+        stage('Docker Compose') {
+            steps {
+                bat 'docker compose up --build -d'
+            }
+        }
     }
 
     post {
