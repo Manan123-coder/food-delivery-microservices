@@ -12,10 +12,10 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'pip install pytest httpx'
-                bat 'pip install -r user-service/requirements.txt'
-                bat 'pip install -r restaurent-service/requirements.txt'
-                bat 'pip install -r order-service/requirements.txt'
+                bat 'python -m pip install pytest httpx'
+                bat 'python -m pip install -r user-service/requirements.txt'
+                bat 'python -m pip install -r restaurent-service/requirements.txt'
+                bat 'python -m pip install -r order-service/requirements.txt'
             }
         }
 
@@ -36,17 +36,14 @@ pipeline {
                 bat 'cd order-service && pytest'
             }
         }
+    }
 
-        stage('Build Docker Images') {
-            steps {
-                bat 'docker compose build'
-            }
+    post {
+        success {
+            echo 'All tests passed successfully!'
         }
-
-        stage('Start Application') {
-            steps {
-                bat 'docker compose up -d'
-            }
+        failure {
+            echo 'Tests failed. Check the console output.'
         }
     }
 }
