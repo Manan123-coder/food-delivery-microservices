@@ -1,0 +1,22 @@
+services:
+
+  user-service:
+    build: ./user-service
+    container_name: food-user-service
+    ports:
+      - "8001:8001"
+
+  restaurant-service:
+    build: ./restaurent-service
+    container_name: food-restaurant-service
+    ports:
+      - "8002:8002"
+
+  order-service:
+    build: ./order-service
+    container_name: food-order-service
+    ports:
+      - "8003:8003"
+    depends_on:
+      - user-service
+      - restaurant-service
