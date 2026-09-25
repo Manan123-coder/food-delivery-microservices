@@ -21,22 +21,21 @@ pipeline {
 
         stage('Test User Service') {
             steps {
-                bat 'cd user-service && pytest'
+                bat '"C:\\Users\\lipsa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pytest user-service'
             }
         }
 
         stage('Test Restaurant Service') {
             steps {
-                bat 'cd restaurent-service && pytest'
+                bat '"C:\\Users\\lipsa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pytest restaurent-service'
             }
         }
 
         stage('Test Order Service') {
             steps {
-                bat 'cd order-service && pytest'
+                bat '"C:\\Users\\lipsa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pytest order-service'
             }
         }
-    }
 
     post {
         success {
